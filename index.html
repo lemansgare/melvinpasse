@@ -11,21 +11,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #F7F4EF;
+      --bg:       #F8F4EE;
       --surface:  #FFFFFF;
-      --surface2: #EDE9E3;
-      --border:   rgba(28,20,12,0.09);
-      --accent:   #5A8F6F;
-      --accent2:  #2E6B4A;
-      --green:    #5A8F6F;
-      --amber:    #3D7A59;
-      --coral-bg: rgba(90,143,111,.07);
-      --coral-border: rgba(90,143,111,.2);
-      --text:     #1C1917;
-      --muted:    #7C746C;
+      --surface2: #EDE5D8;
+      --border:   rgba(44,42,39,0.09);
+      --accent:   #7A9E87;
+      --accent2:  #5A8068;
+      --green:    #7A9E87;
+      --amber:    #C4A882;
+      --coral-bg: rgba(122,158,135,.07);
+      --coral-border: rgba(122,158,135,.2);
+      --text:     #2C2A27;
+      --muted:    #9A8E82;
       --radius:   16px;
-      --shadow:   0 2px 16px rgba(28,20,12,0.07);
-      --shadow-lg:0 8px 40px rgba(28,20,12,0.10);
+      --shadow:   0 2px 16px rgba(44,42,39,0.07);
+      --shadow-lg:0 8px 40px rgba(44,42,39,0.10);
     }
 
     html { scroll-behavior: smooth; }
@@ -107,13 +107,13 @@
 
     .bg-glow-1 {
       position: absolute; width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(90,143,111,.15) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(122,158,135,.12) 0%, transparent 65%);
       top: -150px; right: -180px; z-index: 0;
       animation: float 10s ease-in-out infinite;
     }
     .bg-glow-2 {
       position: absolute; width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(61,59,88,.07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(196,168,130,.10) 0%, transparent 65%);
       bottom: -100px; left: -100px; z-index: 0;
       animation: float 13s ease-in-out infinite reverse;
     }
@@ -236,7 +236,7 @@
 
     .avatar {
       width: 100%; height: 100%; border-radius: 50%;
-      background: linear-gradient(135deg, var(--surface2) 0%, #E8E1D8 100%);
+      background: linear-gradient(135deg, var(--surface2) 0%, #EDE5D8 100%);
       border: 2px solid var(--border);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Space Grotesk', sans-serif;
@@ -293,7 +293,7 @@
     .metric-label { color: var(--muted); font-size: .85rem; margin-top: .75rem; font-weight: 500; }
 
     /* ─── PROFIL ──────────────────────────────────────────────────── */
-    #profil { padding: 5rem 2rem; background: linear-gradient(135deg, #EEF5F1 0%, #EDE9E3 100%); }
+    #profil { padding: 5rem 2rem; background: linear-gradient(135deg, #F4EEE4 0%, #EDE9E3 100%); }
     .profil-inner {
       max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
@@ -483,7 +483,7 @@
     }
     .projet-card.visible { opacity: 1; transform: translateY(0); }
     .projet-header {
-      background: linear-gradient(135deg, #EEF5F1 0%, #E4EEE9 100%);
+      background: linear-gradient(135deg, #F4EEE4 0%, #EDE5D8 100%);
       border-bottom: 1px solid var(--border);
       padding: 2rem 2.5rem;
       display: flex; align-items: flex-start; justify-content: space-between;
@@ -579,7 +579,7 @@
     }
 
     /* ─── CONTACT ─────────────────────────────────────────────────── */
-    #contact { padding: 5rem 2rem; background: linear-gradient(135deg, #EEF5F1 0%, #EDE9E3 100%); }
+    #contact { padding: 5rem 2rem; background: linear-gradient(135deg, #F4EEE4 0%, #EDE9E3 100%); }
     .contact-inner {
       max-width: 900px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
