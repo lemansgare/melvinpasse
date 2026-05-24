@@ -829,6 +829,20 @@
       transition: width .08s linear;
     }
 
+    /* ─── BACK TO TOP ───────────────────────────────────────────── */
+    #back-top {
+      position: fixed; bottom: 40px; right: 18px; z-index: 1000;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--accent); color: #fff; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 4px 16px rgba(122,158,135,.35);
+      opacity: 0; transform: translateY(10px);
+      transition: opacity .3s, transform .3s, background .2s;
+      pointer-events: none;
+    }
+    #back-top.show { opacity: 1; transform: translateY(0); pointer-events: all; }
+    #back-top:hover { background: var(--accent2); transform: translateY(-3px); }
+
     /* cursor: natif */
 
     /* ─── TILT CARDS ─────────────────────────────────────────────── */
@@ -1723,6 +1737,8 @@
   </footer>
 
   <!-- Lightbox -->
+  <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑</button>
+
   <div class="popup-overlay" id="success-popup">
     <div class="popup-box">
       <div class="popup-icon">✉️</div>
@@ -1807,9 +1823,11 @@
 
     // ─── Scroll progress bar ─────────────────────────────────────────
     const prog = document.getElementById('scroll-prog');
+    const backTop = document.getElementById('back-top');
     window.addEventListener('scroll', () => {
       const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
       prog.style.width = (p * 100) + '%';
+      backTop.classList.toggle('show', window.scrollY > 400);
     }, { passive: true });
 
     // ─── Canvas animated background ──────────────────────────────────
