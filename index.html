@@ -788,6 +788,43 @@
     }
     .fade-in.visible { opacity: 1; transform: perspective(700px) rotateX(0deg) translateY(0); }
 
+    /* ─── BLOBS MORPHING ────────────────────────────────────────── */
+    .blob-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    }
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(60px); opacity: .13;
+      animation: morph 14s ease-in-out infinite;
+      will-change: border-radius, transform;
+    }
+    .blob-1 {
+      width: 520px; height: 520px;
+      background: var(--accent);
+      top: -120px; left: -100px;
+      animation-duration: 16s;
+    }
+    .blob-2 {
+      width: 420px; height: 420px;
+      background: var(--amber);
+      bottom: 10%; right: -80px;
+      animation-duration: 20s;
+      animation-delay: -6s;
+    }
+    .blob-3 {
+      width: 300px; height: 300px;
+      background: var(--accent2);
+      top: 50%; left: 40%;
+      animation-duration: 18s;
+      animation-delay: -10s;
+    }
+    @keyframes morph {
+      0%,100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; transform: scale(1) translate(0,0); }
+      25%      { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; transform: scale(1.05) translate(20px,-15px); }
+      50%      { border-radius: 55% 45% 60% 40% / 45% 55% 50% 60%; transform: scale(.97) translate(-15px,20px); }
+      75%      { border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; transform: scale(1.03) translate(10px,10px); }
+    }
+
     /* ─── POPUP CONFIRMATION ────────────────────────────────────── */
     .popup-overlay {
       position: fixed; inset: 0; z-index: 2000;
@@ -973,6 +1010,13 @@
   </style>
 </head>
 <body>
+
+  <!-- BLOBS MORPHING BACKGROUND -->
+  <div class="blob-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
   <!-- SCROLL PROGRESS -->
   <div class="scroll-progress" id="scroll-prog"></div>
