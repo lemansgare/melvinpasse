@@ -45,6 +45,7 @@
   .nav-role{flex:1;text-align:center;font-size:.76rem;font-weight:600;color:var(--muted);letter-spacing:.02em;white-space:nowrap;}
   .nav-cv{font-size:.82rem;font-weight:600;color:var(--green-dark);text-decoration:none;border:1.5px solid var(--border);padding:.45rem 1rem;border-radius:99px;transition:border-color .2s,color .2s,transform .2s;white-space:nowrap;flex-shrink:0;}
   .nav-cv:hover{border-color:var(--green);color:var(--green);transform:translateY(-1px);}
+  .nav-cv-short{display:none;}
 
   /* HERO */
   #hero{padding:5rem 0 3.5rem;position:relative;overflow:hidden;}
@@ -127,6 +128,18 @@
     .pillar ul{padding-left:2rem;}
     .nav-role{display:none;}
   }
+
+  @media(max-width:480px){
+    nav{padding:.7rem 1rem;}
+    .nav-inner{gap:.5rem;}
+    .nav-brands{gap:.4rem;}
+    .nav-name{display:none;}
+    .nav-x{font-size:.8rem;}
+    .nav-logo{height:22px;}
+    .nav-cv{padding:.4rem .8rem;font-size:.78rem;}
+    .nav-cv-full{display:none;}
+    .nav-cv-short{display:inline;}
+  }
 </style>
 </head>
 <body>
@@ -142,7 +155,10 @@
       <img src="logo-technimaine-adaf.png" alt="Technimaine ADAF" class="nav-logo" />
     </div>
     <span class="nav-role">Bras droit du dirigeant · Directeur Adjoint</span>
-    <a href="https://sarthe72.github.io/melvinpasse/" class="nav-cv">Voir mon CV complet →</a>
+    <a href="https://sarthe72.github.io/melvinpasse/" class="nav-cv">
+      <span class="nav-cv-full">Voir mon CV complet →</span>
+      <span class="nav-cv-short">CV →</span>
+    </a>
   </div>
 </nav>
 
