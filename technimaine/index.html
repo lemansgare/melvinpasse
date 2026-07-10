@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Melvin PASSE · Pour Antoine Des Roseaux, Technimaine ADAF</title>
+<meta name="description" content="Suite à notre échange du 10 juillet, comment je vois mon rôle de bras droit chez Technimaine ADAF." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --bg:#FAFAF7;
+    --surface:#FFFFFF;
+    --surface2:#F1F0EA;
+    --border:rgba(30,35,28,0.09);
+    --green:#2E9E4E;
+    --green-dark:#1F7A3C;
+    --magenta:#C2185B;
+    --red:#E64526;
+    --text:#20241F;
+    --muted:#767C71;
+    --radius:16px;
+    --shadow:0 2px 16px rgba(20,25,18,0.06);
+    --shadow-lg:0 10px 40px rgba(20,25,18,0.10);
+  }
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;position:relative;}
+  body::before{content:'';position:fixed;inset:0;background:url('logo-technimaine-adaf.png') no-repeat center 30%;background-size:min(85vw,900px);opacity:.05;pointer-events:none;z-index:0;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.15;}
+  a{color:inherit;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.88);backdrop-filter:blur(14px);border-bottom:1px solid transparent;padding:.9rem 1.5rem;transition:all .3s;}
+  nav.scrolled{background:rgba(250,250,247,.97);border-bottom-color:var(--border);box-shadow:0 2px 20px rgba(20,25,18,.06);}
+  .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+  .nav-brands{display:flex;align-items:center;gap:.7rem;}
+  .nav-mp{display:flex;align-items:center;gap:.6rem;text-decoration:none;}
+  .nav-badge{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:.8rem;box-shadow:0 2px 10px rgba(46,158,78,.35);flex-shrink:0;}
+  .nav-name{font-family:'Space Grotesk';font-weight:700;font-size:.85rem;color:var(--text);white-space:nowrap;}
+  .nav-x{color:var(--muted);font-size:.9rem;font-weight:600;}
+  .nav-logo{height:28px;width:auto;object-fit:contain;}
+  .nav-role{flex:1;text-align:center;font-size:.76rem;font-weight:600;color:var(--muted);letter-spacing:.02em;white-space:nowrap;}
+  .nav-cv{font-size:.82rem;font-weight:600;color:var(--green-dark);text-decoration:none;border:1.5px solid var(--border);padding:.45rem 1rem;border-radius:99px;transition:border-color .2s,color .2s,transform .2s;white-space:nowrap;flex-shrink:0;}
+  .nav-cv:hover{border-color:var(--green);color:var(--green);transform:translateY(-1px);}
+
+  /* HERO */
+  #hero{padding:5rem 0 3.5rem;position:relative;overflow:hidden;}
+  .bg-glow-1{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(46,158,78,.14) 0%,transparent 65%);top:-220px;right:-160px;z-index:0;animation:float 11s ease-in-out infinite;}
+  .bg-glow-2{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(194,24,91,.10) 0%,transparent 65%);bottom:-180px;left:-140px;z-index:0;animation:float 14s ease-in-out infinite reverse;}
+  @keyframes float{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-22px) scale(1.03);}}
+  .hero-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.5rem;background:rgba(46,158,78,.10);border:1px solid rgba(46,158,78,.28);color:var(--green-dark);padding:.4rem 1rem;border-radius:99px;font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:1.5rem;}
+  .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.4);}}
+  .hero{position:relative;z-index:1;}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.1rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.6rem;position:relative;z-index:1;}
+  .hero h1 .accent{color:var(--green-dark);}
+  .hero-typewriter{font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:700;color:var(--magenta);margin-bottom:1.2rem;height:2rem;position:relative;z-index:1;}
+  .tw-word{border-right:3px solid var(--magenta);animation:blink .7s step-end infinite;}
+  @keyframes blink{50%{border-color:transparent;}}
+  .hero p.lead{font-size:1.08rem;color:var(--muted);max-width:640px;margin-bottom:2rem;position:relative;z-index:1;}
+
+  /* SECTION */
+  section{padding:3.2rem 0;}
+  .section-label{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--magenta);margin-bottom:.5rem;}
+  .section-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;margin-bottom:1.6rem;max-width:640px;}
+  .divider{height:1px;background:var(--border);}
+
+  /* FADE-IN REVEAL */
+  .fade-in{opacity:0;transform:perspective(700px) rotateX(-10deg) translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,.61,.36,1);}
+  .fade-in.visible{opacity:1;transform:perspective(700px) rotateX(0) translateY(0);}
+
+  /* CONTEXT LIST */
+  .ctx-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;}
+  .ctx-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.3rem;font-size:.92rem;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s,border-color .25s;}
+  .ctx-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:rgba(194,24,91,.3);}
+  .ctx-item strong{display:block;font-family:'Space Grotesk';font-size:.95rem;margin-bottom:.25rem;color:var(--green-dark);}
+
+  /* PILLAR CARDS */
+  .pillars{display:grid;grid-template-columns:1fr;gap:1rem;}
+  .pillar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.6rem;box-shadow:var(--shadow);border-left:4px solid var(--green);transition:transform .25s,box-shadow .25s;}
+  .pillar:hover{transform:translateY(-4px) translateX(2px);box-shadow:var(--shadow-lg);}
+  .pillar h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+  .pillar .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:.78rem;font-weight:700;flex-shrink:0;}
+  .pillar ul{list-style:none;padding-left:2.5rem;}
+  .pillar li{position:relative;font-size:.91rem;color:var(--text);margin-bottom:.4rem;}
+  .pillar li::before{content:'';position:absolute;left:-1rem;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--magenta);}
+  .pillar li strong{color:var(--green-dark);}
+
+  /* OBJECTION */
+  .objection{background:linear-gradient(135deg,rgba(194,24,91,.06),rgba(46,158,78,.06));border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem 2rem;transition:box-shadow .3s;}
+  .objection:hover{box-shadow:var(--shadow-lg);}
+  .objection p{font-size:.94rem;margin-bottom:.85rem;}
+  .objection p:last-child{margin-bottom:0;}
+  .objection strong{color:var(--magenta);}
+
+  /* SITE WEB CALLOUT */
+  .callout{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem 2rem;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;}
+  .callout:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+  .callout p{font-size:.94rem;margin-bottom:.85rem;}
+  .callout p:last-child{margin-bottom:0;}
+  .proof-links{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+  .proof-links a{font-size:.8rem;font-weight:600;background:var(--surface2);border:1px solid var(--border);padding:.4rem .9rem;border-radius:99px;text-decoration:none;color:var(--green-dark);transition:border-color .2s,transform .2s;}
+  .proof-links a:hover{border-color:var(--green);transform:translateY(-2px);}
+
+  /* FOOTER */
+  footer{padding:3rem 0 4rem;text-align:center;position:relative;z-index:1;}
+  .closing-card{background:linear-gradient(135deg,rgba(194,24,91,.08),rgba(46,158,78,.10));border:1px solid var(--border);border-radius:var(--radius);padding:2.4rem 2rem 1.6rem;box-shadow:var(--shadow);max-width:760px;margin:0 auto 2rem;transition:box-shadow .3s,transform .3s;}
+  .closing-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
+  footer .closing{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.15rem,2.8vw,1.55rem);font-weight:800;color:var(--text);margin:0 auto;line-height:1.4;letter-spacing:-.01em;}
+  footer .closing .hl{background:linear-gradient(90deg,var(--magenta),var(--green-dark));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;animation:closing-pulse 2.4s ease-in-out infinite;}
+  @keyframes closing-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.75;transform:scale(1.04);}}
+  .closing-arrow{margin-top:.8rem;font-size:1.3rem;color:var(--muted);animation:arrow-bounce 1.6s ease-in-out infinite;}
+  @keyframes arrow-bounce{0%,100%{transform:translateY(0);opacity:.6;}50%{transform:translateY(6px);opacity:1;}}
+  .footer-contacts{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:1.1rem 0 1.2rem;}
+  .footer-btn{font-size:.82rem;font-weight:600;padding:.55rem 1.2rem;border-radius:99px;text-decoration:none;border:1.5px solid var(--border);color:var(--green-dark);background:var(--surface);transition:border-color .2s,transform .2s,box-shadow .2s;}
+  .footer-btn:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);box-shadow:var(--shadow);}
+  footer .contact{font-size:.85rem;color:var(--muted);}
+  footer .contact a{text-decoration:none;color:var(--green-dark);font-weight:600;transition:color .2s;}
+  footer .contact a:hover{color:var(--magenta);}
+  footer .date{font-size:.78rem;color:var(--muted);margin-top:1.5rem;}
+
+  @media(max-width:640px){
+    .ctx-grid{grid-template-columns:1fr;}
+    .pillar ul{padding-left:2rem;}
+    .nav-role{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-brands">
+      <a href="https://sarthe72.github.io/melvinpasse/" class="nav-mp">
+        <span class="nav-badge">MP</span>
+        <span class="nav-name">Melvin PASSE</span>
+      </a>
+      <span class="nav-x">×</span>
+      <img src="logo-technimaine-adaf.png" alt="Technimaine ADAF" class="nav-logo" />
+    </div>
+    <span class="nav-role">Bras droit du dirigeant · Directeur Adjoint</span>
+    <a href="https://sarthe72.github.io/melvinpasse/" class="nav-cv">Voir mon CV complet →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section id="hero">
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+    <span class="hero-badge">Suite à notre échange du 10 juillet</span>
+    <h1 class="hero">Continuons de structurer <span class="accent">Technimaine ADAF</span>, ensemble.</h1>
+    <div class="hero-typewriter" id="tw-container"><span class="tw-word" id="tw-target">Je structure.</span></div>
+    <p class="lead">
+      Merci Antoine pour le temps pris ce matin.<br />
+      Voici, à froid, comment je vois concrètement mon rôle de bras droit à tes côtés.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+
+  <section id="contexte">
+    <p class="section-label fade-in">Ce que j'ai retenu</p>
+    <h2 class="section-title fade-in">Ton contexte, tel que je l'ai compris</h2>
+    <div class="ctx-grid">
+      <div class="ctx-item fade-in" style="grid-column:1/-1;"><strong>Post-fusion 2023, forte croissance</strong>~60 collaborateurs aujourd'hui, +27 % de CA en 2025, sans doute +30 % cette année.<br />Le défi n'est plus de croître, c'est de sortir de la marge.</div>
+      <div class="ctx-item fade-in"><strong>Achats</strong>Client en direct avec le fournisseur, actionnaires qui imposent leurs fournisseurs, les fournisseurs imposent leurs tarifs, et Technimaine mange sa marge pour rester compétitif.</div>
+      <div class="ctx-item fade-in"><strong>Garanties</strong>Environnement exigeant, garantie quasi systématiquement activée → beaucoup d'aller-retours chez les clients, non facturés.</div>
+      <div class="ctx-item fade-in"><strong>Installation</strong>Heures vendues inférieures aux heures réalisées. Les équipes ADAF et Technimaine ne travaillent pas encore de la même façon.</div>
+      <div class="ctx-item fade-in"><strong>Gestion, le vrai nœud</strong>Le pilotage à vue : pas de visibilité fine sur la marge réelle par chantier. Le projet CRM devient inéluctable.</div>
+      <div class="ctx-item fade-in" style="grid-column:1/-1;text-align:center;"><strong>Actionnaires</strong>LDC et LOUÉ en actionnaires, puissants et intéressés.</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="apport">
+    <p class="section-label fade-in">Pistes de travail</p>
+    <h2 class="section-title fade-in">Ce qu'il faudrait probablement faire, chantier par chantier</h2>
+    <p class="fade-in" style="font-size:.92rem;color:var(--muted);margin-bottom:1.4rem;">Je ne prétends pas que ce qui a fonctionné ailleurs fonctionnera à l'identique ici, chaque structure a ses contraintes propres.<br />Voici plutôt, dans l'idéal, les leviers à travailler pour sortir de la marge.</p>
+    <div class="pillars">
+      <div class="pillar fade-in">
+        <h3><span class="num">1</span> Achats</h3>
+        <ul>
+          <li>Centraliser la négociation des prix d'achat pour ne plus la laisser dispersée entre clients, actionnaires et fournisseurs.<br />Construire un rapport de force choisi plutôt que subi.</li>
+        </ul>
+      </div>
+      <div class="pillar fade-in">
+        <h3><span class="num">2</span> Garanties</h3>
+        <ul>
+          <li>Remettre à plat les accords fournisseurs et clients sur la garantie, et optimiser l'organisation humaine, matérielle et logistique des interventions pour réduire le coût des allers-retours non facturés.</li>
+        </ul>
+      </div>
+      <div class="pillar fade-in">
+        <h3><span class="num">3</span> Installation</h3>
+        <ul>
+          <li>Optimisation humaine, matérielle et logistique.<br />Process à mettre en place, avec formation et suivi de résultats.<br />Standardiser le pack technicien entre les équipes ADAF et Technimaine, pour qu'un même produit fini demande le même temps, quelle que soit l'équipe.</li>
+        </ul>
+      </div>
+      <div class="pillar fade-in">
+        <h3><span class="num">4</span> Gestion</h3>
+        <ul>
+          <li>Le projet CRM est inéluctable pour un pilotage précis, factuel, et une optimisation des négociations qui en découleront.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fade-in" style="font-size:.86rem;color:var(--muted);margin-top:1.2rem;">Ce sont des pistes, pas des certitudes. La priorisation et le rythme se construiront avec toi et tes équipes, une fois sur place.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="brasdroit">
+    <p class="section-label fade-in">Au-delà des 4 chantiers</p>
+    <h2 class="section-title fade-in">Ce qu'un bras droit change au quotidien</h2>
+    <p class="fade-in" style="font-size:.92rem;color:var(--muted);margin-bottom:1.4rem;">L'objectif : que tu puisses te concentrer davantage sur la vision stratégique et le pilotage de la société, et moins sur l'opérationnel du quotidien.</p>
+    <div class="ctx-grid">
+      <div class="ctx-item fade-in"><strong>Vision transversale</strong>Je vois l'ensemble, pas un silo, contrairement à un cadre focalisé sur sa fonction.</div>
+      <div class="ctx-item fade-in"><strong>Filtrer les sollicitations</strong>Tout ne doit pas remonter jusqu'à toi, je trie ce qui a vraiment besoin de ton arbitrage.</div>
+      <div class="ctx-item fade-in"><strong>Arbitrer le quotidien</strong>Les décisions courantes qui n'ont pas besoin de toi personnellement, je les tranche.</div>
+      <div class="ctx-item fade-in"><strong>Te représenter</strong>En interne comme en externe, quand ta présence n'est pas indispensable.</div>
+      <div class="ctx-item fade-in" style="grid-column:1/-1;text-align:center;"><strong>Agir comme un PMO interne</strong>Porter le suivi des projets structurants dans la durée, pas seulement gérer les urgences du jour.</div>
+    </div>
+    <div class="objection fade-in" style="margin-top:1rem;">
+      <p>Un dirigeant entend souvent ce qu'on pense qu'il veut entendre. Un bras droit doit pouvoir dire : <strong>« Je pense que c'est une mauvaise décision. »</strong> ou <strong>« Les équipes ne suivront pas. »</strong></p>
+      <p>C'est de la contradiction constructive, pas de la complaisance, et c'est souvent ce qui manque le plus autour d'un dirigeant.</p>
+    </div>
+    <div class="objection fade-in" style="margin-top:1rem;">
+      <p><strong>Je ne suis pas du métier de l'aménagement.</strong> C'est un vrai point d'attention, une courbe d'apprentissage à assumer au départ, je ne te le cache pas.</p>
+      <p>Mais c'est aussi un œil extérieur, sans les habitudes du secteur : je questionne ce qui se fait « parce que ça s'est toujours fait comme ça », précisément ce qu'il faut pour driver une démarche d'amélioration continue sur les 4 chantiers ci-dessus.</p>
+      <p>Et je n'aurai aucun souci à poser des questions, ni à dire simplement « je ne comprends pas ».</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="board">
+    <p class="section-label fade-in">Comité de direction</p>
+    <h2 class="section-title fade-in">Un comité de direction à 7, pas un comité dilué à 6+1</h2>
+    <div class="objection fade-in">
+      <p>Je sais que l'idée d'un 6<sup>e</sup> cadre au comité de direction t'interroge un peu, et c'est légitime. Mais je le vois autrement : <strong>un adjoint ne dilue pas ton comité, il le muscle.</strong></p>
+      <p>Sur un arbitrage serré, 7 vaut mieux que 6 : tu ne restes jamais bloqué à 3 contre 3.</p>
+      <p>Chacun de tes cadres porte une fonction : achats, technique, commercial.<br />Cependant personne ne porte les sujets transverses.<br />Ce n'est pas une place à prendre sur quelqu'un, c'est un vide à combler.</p>
+      <p>Mon rôle n'est pas de prendre la place de tes cadres actuels, c'est de leur redonner le temps qu'ils n'ont plus aujourd'hui pour piloter les projets, avec un garde-fou opérationnel supplémentaire.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="siteweb">
+    <p class="section-label fade-in">Un exemple concret</p>
+    <h2 class="section-title fade-in">Le site vitrine, un résultat visible avant même ma prise de poste</h2>
+    <div class="callout fade-in">
+      <p>Tu m'as parlé d'un devis à <strong>~8 000 €</strong> pour refaire le site en simple vitrine, avec un site marchand envisagé plus tard.</p>
+      <p>Cette page que tu es en train de lire, mon CV en ligne, mais aussi plusieurs outils métier que j'ai conçus et que je maintiens moi-même pour d'autres structures (gestion immobilière, planning de services techniques communaux, suivi d'équipes), je les fais de A à Z, sans prestataire. Ces compétences ne me sont donc pas totalement inconnues.</p>
+      <p>Avec un nom de domaine déjà en place, on peut avoir une vitrine gratuitement. Le site marchand n'est pas la priorité du moment, mais pourra justement devenir, ensuite, un projet à part entière.</p>
+      <div class="proof-links">
+        <a href="https://sarthe72.github.io/melvinpasse/">CV digital</a>
+        <a href="https://uneescalegourmande.fr/">Site créé pour Benjamin</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+</div>
+
+<footer>
+  <div class="closing-card fade-in">
+    <p class="closing">J'espère que cette page t'aide à te projeter.<br />La suite, si tu veux, <span class="hl">on en parle ici</span></p>
+    <div class="closing-arrow">↓</div>
+  </div>
+  <div class="footer-contacts">
+    <a href="mailto:passe.melvin@gmail.com" class="footer-btn">Email</a>
+    <a href="https://wa.me/33682149159?text=Bonjour%20Melvin%2C%20on%20continue%20la%20discussion%20Technimaine%20ADAF%20%3F" class="footer-btn" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="tel:+33682149159" class="footer-btn">Téléphone</a>
+  </div>
+  <p class="contact">passe.melvin@gmail.com · 06.82.14.91.59 · Sarthe (72)</p>
+  <p class="date">Sarthe, le 10 juillet 2026</p>
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Typewriter
+  const twWords = ['Je pilote.', 'Je négocie.', "J'améliore.", 'Je soutiens.', 'Je structure.'];
+  const twTarget = document.getElementById('tw-target');
+  let twIndex = 0, twChar = 0, twDeleting = false;
+  function typeStep(){
+    const word = twWords[twIndex];
+    if (!twDeleting) {
+      twChar++;
+      twTarget.textContent = word.slice(0, twChar);
+      if (twChar === word.length) { twDeleting = true; setTimeout(typeStep, 1400); return; }
+    } else {
+      twChar--;
+      twTarget.textContent = word.slice(0, twChar);
+      if (twChar === 0) { twDeleting = false; twIndex = (twIndex + 1) % twWords.length; }
+    }
+    setTimeout(typeStep, twDeleting ? 45 : 85);
+  }
+  setTimeout(typeStep, 600);
+
+  // Fade-in reveal on scroll
+  const revealIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealIo.unobserve(e.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.fade-in').forEach(el => revealIo.observe(el));
+</script>
+
+</body>
+</html>
